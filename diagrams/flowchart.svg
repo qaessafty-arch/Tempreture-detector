@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="960" viewBox="0 0 820 960" font-family="Arial, Helvetica, sans-serif" font-size="14">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <rect width="820" height="960" fill="#fff"/>
+  <text x="410" y="30" text-anchor="middle" font-size="20" font-weight="bold">Flowchart – Temperature Detector</text>
+
+  <g stroke="#222" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <!-- main column -->
+    <line x1="300" y1="100" x2="300" y2="128"/>
+    <line x1="300" y1="188" x2="300" y2="218"/>
+    <line x1="300" y1="268" x2="300" y2="298"/>
+    <line x1="300" y1="358" x2="300" y2="383"/>
+    <!-- decision 1 -->
+    <line x1="410" y1="440" x2="478" y2="440"/>
+    <line x1="300" y1="497" x2="300" y2="533"/>
+    <!-- decision 2 -->
+    <line x1="410" y1="590" x2="478" y2="590"/>
+    <line x1="300" y1="647" x2="300" y2="683"/>
+    <!-- merge -->
+    <line x1="300" y1="733" x2="300" y2="788"/>
+    <polyline points="720,440 760,440 760,763 300,763" marker-end="none"/>
+    <line x1="720" y1="590" x2="760" y2="590" marker-end="none"/>
+    <line x1="300" y1="838" x2="300" y2="863"/>
+    <!-- loop back -->
+    <polyline points="180,888 70,888 70,243 178,243"/>
+  </g>
+  <circle cx="300" cy="763" r="4" fill="#222"/>
+  <circle cx="760" cy="590" r="4" fill="#222"/>
+
+  <!-- Start -->
+  <rect x="220" y="50" width="160" height="50" rx="25" fill="#d9f2d9" stroke="#222" stroke-width="2"/>
+  <text x="300" y="80" text-anchor="middle" font-weight="bold">START</text>
+
+  <!-- Init -->
+  <rect x="180" y="130" width="240" height="58" fill="#eef3fb" stroke="#222" stroke-width="2"/>
+  <text x="300" y="154" text-anchor="middle">Set pins 8, 9, 10 as OUTPUT</text>
+  <text x="300" y="174" text-anchor="middle">All LEDs OFF, Serial 9600</text>
+
+  <!-- Read (I/O parallelogram) -->
+  <polygon points="200,220 430,220 400,268 170,268" fill="#fff6d6" stroke="#222" stroke-width="2"/>
+  <text x="300" y="249" text-anchor="middle">Read LM35 on A0 (raw)</text>
+
+  <!-- Convert -->
+  <rect x="180" y="300" width="240" height="58" fill="#eef3fb" stroke="#222" stroke-width="2"/>
+  <text x="300" y="324" text-anchor="middle">Convert to °C:</text>
+  <text x="300" y="344" text-anchor="middle">T = raw × 500 / 1024</text>
+
+  <!-- Decision 1 -->
+  <polygon points="300,385 410,440 300,495 190,440" fill="#fde8e8" stroke="#222" stroke-width="2"/>
+  <text x="300" y="445" text-anchor="middle" font-weight="bold">T ≤ 20 °C ?</text>
+  <text x="435" y="430" text-anchor="middle" font-weight="bold">YES</text>
+  <text x="320" y="520" font-weight="bold">NO</text>
+
+  <!-- Blue -->
+  <rect x="480" y="410" width="240" height="60" fill="#cfe2ff" stroke="#1f5fd1" stroke-width="2.5"/>
+  <text x="600" y="435" text-anchor="middle" font-weight="bold" fill="#1f5fd1">BLUE LED ON</text>
+  <text x="600" y="456" text-anchor="middle">Orange OFF, Red OFF</text>
+
+  <!-- Decision 2 -->
+  <polygon points="300,535 410,590 300,645 190,590" fill="#fde8e8" stroke="#222" stroke-width="2"/>
+  <text x="300" y="595" text-anchor="middle" font-weight="bold">T ≤ 40 °C ?</text>
+  <text x="435" y="580" text-anchor="middle" font-weight="bold">YES</text>
+  <text x="320" y="670" font-weight="bold">NO</text>
+
+  <!-- Orange -->
+  <rect x="480" y="560" width="240" height="60" fill="#ffe2c2" stroke="#e07000" stroke-width="2.5"/>
+  <text x="600" y="585" text-anchor="middle" font-weight="bold" fill="#c45f00">ORANGE LED ON</text>
+  <text x="600" y="606" text-anchor="middle">Blue OFF, Red OFF</text>
+
+  <!-- Red -->
+  <rect x="180" y="685" width="240" height="48" fill="#ffd0d0" stroke="#d11f1f" stroke-width="2.5"/>
+  <text x="300" y="706" text-anchor="middle" font-weight="bold" fill="#d11f1f">RED LED ON  (T &gt; 40 °C)</text>
+  <text x="300" y="724" text-anchor="middle">Blue OFF, Orange OFF</text>
+
+  <!-- Print -->
+  <polygon points="210,790 420,790 390,838 180,838" fill="#fff6d6" stroke="#222" stroke-width="2"/>
+  <text x="300" y="819" text-anchor="middle">Print T to Serial Monitor</text>
+
+  <!-- Delay -->
+  <rect x="180" y="865" width="240" height="46" fill="#eef3fb" stroke="#222" stroke-width="2"/>
+  <text x="300" y="893" text-anchor="middle">Wait 500 ms</text>
+
+  <text x="56" y="560" transform="rotate(-90 56 560)" text-anchor="middle" font-style="italic" fill="#555">repeat forever (loop)</text>
+
+  <!-- legend -->
+  <g font-size="12">
+    <rect x="560" y="800" width="26" height="16" rx="8" fill="#d9f2d9" stroke="#222"/><text x="594" y="813">Start / End</text>
+    <rect x="560" y="824" width="26" height="16" fill="#eef3fb" stroke="#222"/><text x="594" y="837">Process</text>
+    <polygon points="566,848 590,848 584,864 560,864" fill="#fff6d6" stroke="#222"/><text x="594" y="861">Input / Output</text>
+    <polygon points="573,870 586,878 573,886 560,878" fill="#fde8e8" stroke="#222"/><text x="594" y="883">Decision</text>
+  </g>
+</svg>

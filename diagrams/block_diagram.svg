@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="440" viewBox="0 0 980 440" font-family="Arial, Helvetica, sans-serif" font-size="14">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <rect width="980" height="440" fill="#fff"/>
+  <text x="490" y="32" text-anchor="middle" font-size="20" font-weight="bold">Block Diagram – Temperature Detector</text>
+
+  <!-- columns labels -->
+  <g font-size="13" fill="#666" font-style="italic" text-anchor="middle">
+    <text x="130" y="70">INPUT (sensing)</text>
+    <text x="440" y="70">PROCESSING (control)</text>
+    <text x="820" y="70">OUTPUT (indication)</text>
+  </g>
+
+  <!-- Sensor -->
+  <rect x="40" y="150" width="180" height="90" rx="8" fill="#fff6d6" stroke="#222" stroke-width="2"/>
+  <text x="130" y="185" text-anchor="middle" font-weight="bold">LM35</text>
+  <text x="130" y="205" text-anchor="middle">Temperature sensor</text>
+  <text x="130" y="224" text-anchor="middle" font-size="12">10 mV / °C</text>
+
+  <!-- Power -->
+  <rect x="340" y="345" width="200" height="60" rx="8" fill="#eee" stroke="#222" stroke-width="2"/>
+  <text x="440" y="370" text-anchor="middle" font-weight="bold">Power supply</text>
+  <text x="440" y="390" text-anchor="middle" font-size="12">USB 5 V or 9 V adapter</text>
+
+  <!-- Arduino -->
+  <rect x="330" y="110" width="220" height="170" rx="10" fill="#d8eef0" stroke="#00777f" stroke-width="2.5"/>
+  <text x="440" y="140" text-anchor="middle" font-weight="bold" font-size="16">Arduino UNO</text>
+  <text x="440" y="160" text-anchor="middle" font-size="12">(ATmega328P)</text>
+  <text x="440" y="190" text-anchor="middle" font-size="12">10-bit ADC → °C</text>
+  <text x="440" y="208" text-anchor="middle" font-size="12">Compare with 20 °C / 40 °C</text>
+  <text x="440" y="226" text-anchor="middle" font-size="12">Drive one LED</text>
+  <text x="440" y="262" text-anchor="middle" font-size="11" fill="#555">A0 in · D8 / D9 / D10 out</text>
+
+  <!-- LEDs -->
+  <rect x="700" y="100" width="240" height="56" rx="8" fill="#cfe2ff" stroke="#1f5fd1" stroke-width="2"/>
+  <text x="820" y="124" text-anchor="middle" font-weight="bold" fill="#1f5fd1">BLUE LED (D8)</text>
+  <text x="820" y="143" text-anchor="middle" font-size="12">T ≤ 20 °C</text>
+
+  <rect x="700" y="170" width="240" height="56" rx="8" fill="#ffe2c2" stroke="#e07000" stroke-width="2"/>
+  <text x="820" y="194" text-anchor="middle" font-weight="bold" fill="#c45f00">ORANGE LED (D9)</text>
+  <text x="820" y="213" text-anchor="middle" font-size="12">20 °C &lt; T ≤ 40 °C</text>
+
+  <rect x="700" y="240" width="240" height="56" rx="8" fill="#ffd0d0" stroke="#d11f1f" stroke-width="2"/>
+  <text x="820" y="264" text-anchor="middle" font-weight="bold" fill="#d11f1f">RED LED (D10)</text>
+  <text x="820" y="283" text-anchor="middle" font-size="12">T &gt; 40 °C</text>
+
+  <rect x="700" y="330" width="240" height="56" rx="8" fill="#f3f3f3" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="820" y="354" text-anchor="middle" font-weight="bold">Serial Monitor (PC)</text>
+  <text x="820" y="373" text-anchor="middle" font-size="12">optional – shows T value</text>
+
+  <!-- arrows -->
+  <g stroke="#222" stroke-width="2" fill="none" marker-end="url(#a)">
+    <line x1="220" y1="195" x2="328" y2="195"/>
+    <line x1="440" y1="345" x2="440" y2="282"/>
+    <polyline points="550,170 620,170 620,128 698,128"/>
+    <line x1="550" y1="198" x2="698" y2="198"/>
+    <polyline points="550,226 620,226 620,268 698,268"/>
+    <polyline points="550,255 600,255 600,358 698,358" stroke-dasharray="6 4"/>
+  </g>
+  <g font-size="12" fill="#333">
+    <text x="232" y="185">Vout → A0 (analog)</text>
+    <text x="448" y="320">5 V / GND</text>
+    <text x="628" y="122">D8</text>
+    <text x="628" y="192">D9</text>
+    <text x="628" y="262">D10</text>
+    <text x="608" y="350">USB</text>
+  </g>
+</svg>

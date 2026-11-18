@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="720" viewBox="0 0 1000 720" font-family="Arial, Helvetica, sans-serif" font-size="14">
+  <defs>
+    <marker id="ray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+    <!-- LED symbol: anode at x=0, cathode at x=60, centred on y=0 -->
+    <g id="led">
+      <line x1="0" y1="0" x2="18" y2="0" stroke="#222" stroke-width="2"/>
+      <polygon points="18,-14 18,14 42,0" stroke="#222" stroke-width="2"/>
+      <line x1="42" y1="-14" x2="42" y2="14" stroke="#222" stroke-width="2.5"/>
+      <line x1="42" y1="0" x2="60" y2="0" stroke="#222" stroke-width="2"/>
+      <line x1="28" y1="-18" x2="40" y2="-32" stroke="#222" stroke-width="1.5" marker-end="url(#ray)"/>
+      <line x1="38" y1="-16" x2="50" y2="-30" stroke="#222" stroke-width="1.5" marker-end="url(#ray)"/>
+    </g>
+    <!-- Resistor symbol (zig-zag): from x=0 to x=80 on y=0 -->
+    <g id="res">
+      <polyline points="0,0 12,0 18,-9 26,9 34,-9 42,9 50,-9 58,9 64,0 80,0" fill="none" stroke="#222" stroke-width="2"/>
+    </g>
+  </defs>
+  <rect width="1000" height="720" fill="#fff"/>
+  <text x="500" y="34" text-anchor="middle" font-size="20" font-weight="bold">Circuit Diagram – Temperature Detector (Arduino UNO + LM35 + 3 LEDs)</text>
+
+  <!-- ===== Arduino UNO ===== -->
+  <rect x="60" y="80" width="230" height="470" rx="10" fill="#d8eef0" stroke="#00777f" stroke-width="3"/>
+  <text x="160" y="300" text-anchor="middle" font-size="22" font-weight="bold" fill="#00575d">ARDUINO</text>
+  <text x="160" y="326" text-anchor="middle" font-size="22" font-weight="bold" fill="#00575d">UNO</text>
+  <rect x="64" y="100" width="34" height="46" fill="#bbb" stroke="#555"/>
+  <text x="81" y="160" text-anchor="middle" font-size="10">USB</text>
+  <g font-weight="bold" text-anchor="end">
+    <text x="282" y="125">5V</text>
+    <text x="282" y="195">A0</text>
+    <text x="282" y="295">D8</text>
+    <text x="282" y="365">D9</text>
+    <text x="282" y="435">D10</text>
+    <text x="282" y="515">GND</text>
+  </g>
+  <g fill="#222">
+    <circle cx="290" cy="120" r="4"/><circle cx="290" cy="190" r="4"/>
+    <circle cx="290" cy="290" r="4"/><circle cx="290" cy="360" r="4"/>
+    <circle cx="290" cy="430" r="4"/><circle cx="290" cy="510" r="4"/>
+  </g>
+
+  <!-- ===== LM35 ===== -->
+  <rect x="500" y="90" width="130" height="130" rx="6" fill="#fff6d6" stroke="#222" stroke-width="2"/>
+  <text x="565" y="140" text-anchor="middle" font-weight="bold" font-size="16">LM35</text>
+  <text x="565" y="160" text-anchor="middle" font-size="11">temp. sensor</text>
+  <text x="565" y="176" text-anchor="middle" font-size="11">10 mV/°C</text>
+  <g font-size="11">
+    <text x="506" y="116">+Vs (1)</text>
+    <text x="506" y="200">Vout (2)</text>
+    <text x="624" y="196" text-anchor="end">GND (3)</text>
+  </g>
+
+  <!-- wires: 5V (red), signal (green), GND (black) -->
+  <g fill="none" stroke-width="3" stroke-linejoin="round">
+    <polyline points="290,120 500,120" stroke="#d11f1f"/>
+    <polyline points="290,190 420,190 420,205 500,205" stroke="#139a3c"/>
+    <polyline points="630,200 900,200" stroke="#222"/>
+    <!-- ground rail -->
+    <polyline points="900,200 900,510 290,510" stroke="#222"/>
+  </g>
+  <text x="330" y="112" font-size="12" fill="#d11f1f">+5 V</text>
+  <text x="318" y="182" font-size="12" fill="#139a3c">signal (0–1.5 V)</text>
+  <text x="910" y="360" font-size="12" font-weight="bold" transform="rotate(90 910 360)" text-anchor="middle">GND rail</text>
+
+  <!-- ===== LED channels ===== -->
+  <!-- Blue: D8 -->
+  <g stroke-width="3" fill="none">
+    <line x1="290" y1="290" x2="400" y2="290" stroke="#1f5fd1"/>
+    <line x1="480" y1="290" x2="620" y2="290" stroke="#1f5fd1"/>
+    <line x1="680" y1="290" x2="900" y2="290" stroke="#222"/>
+  </g>
+  <use href="#res" x="400" y="290"/>
+  <use href="#led" x="620" y="290" fill="#3b82f6"/>
+  <text x="440" y="276" text-anchor="middle" font-size="12">R1 220 Ω</text>
+  <text x="650" y="322" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f5fd1">LED1 BLUE</text>
+
+  <!-- Orange: D9 -->
+  <g stroke-width="3" fill="none">
+    <line x1="290" y1="360" x2="400" y2="360" stroke="#e07000"/>
+    <line x1="480" y1="360" x2="620" y2="360" stroke="#e07000"/>
+    <line x1="680" y1="360" x2="900" y2="360" stroke="#222"/>
+  </g>
+  <use href="#res" x="400" y="360"/>
+  <use href="#led" x="620" y="360" fill="#ff8c1a"/>
+  <text x="440" y="346" text-anchor="middle" font-size="12">R2 220 Ω</text>
+  <text x="650" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#c45f00">LED2 ORANGE</text>
+
+  <!-- Red: D10 -->
+  <g stroke-width="3" fill="none">
+    <line x1="290" y1="430" x2="400" y2="430" stroke="#d11f1f"/>
+    <line x1="480" y1="430" x2="620" y2="430" stroke="#d11f1f"/>
+    <line x1="680" y1="430" x2="900" y2="430" stroke="#222"/>
+  </g>
+  <use href="#res" x="400" y="430"/>
+  <use href="#led" x="620" y="430" fill="#ef4444"/>
+  <text x="440" y="416" text-anchor="middle" font-size="12">R3 220 Ω</text>
+  <text x="650" y="462" text-anchor="middle" font-size="12" font-weight="bold" fill="#d11f1f">LED3 RED</text>
+
+  <g font-size="11" fill="#555">
+    <text x="610" y="282" text-anchor="end">A(+)</text>
+    <text x="690" y="282">K(−)</text>
+  </g>
+
+  <!-- junctions -->
+  <g fill="#222">
+    <circle cx="900" cy="290" r="5"/><circle cx="900" cy="360" r="5"/><circle cx="900" cy="430" r="5"/>
+  </g>
+
+  <!-- ground symbol -->
+  <g stroke="#222" stroke-width="3">
+    <line x1="900" y1="510" x2="900" y2="540"/>
+    <line x1="880" y1="540" x2="920" y2="540"/>
+    <line x1="887" y1="548" x2="913" y2="548"/>
+    <line x1="894" y1="556" x2="906" y2="556"/>
+  </g>
+
+  <!-- ===== Notes / insets ===== -->
+  <!-- LM35 pinout -->
+  <g transform="translate(70,590)">
+    <rect x="0" y="0" width="290" height="115" rx="6" fill="#fafafa" stroke="#999"/>
+    <text x="10" y="20" font-weight="bold" font-size="13">LM35 pinout (flat face toward you)</text>
+    <path d="M110,35 h70 v30 a35,15 0 0 1 -70,0 z" fill="#333"/>
+    <line x1="125" y1="80" x2="125" y2="98" stroke="#777" stroke-width="3"/>
+    <line x1="145" y1="80" x2="145" y2="98" stroke="#777" stroke-width="3"/>
+    <line x1="165" y1="80" x2="165" y2="98" stroke="#777" stroke-width="3"/>
+    <text x="125" y="111" text-anchor="middle" font-size="11">1</text>
+    <text x="145" y="111" text-anchor="middle" font-size="11">2</text>
+    <text x="165" y="111" text-anchor="middle" font-size="11">3</text>
+    <text x="10" y="56" font-size="11">1 = +Vs (5V)</text>
+    <text x="10" y="72" font-size="11">2 = Vout (A0)</text>
+    <text x="10" y="88" font-size="11">3 = GND</text>
+  </g>
+
+  <!-- LED polarity -->
+  <g transform="translate(380,590)">
+    <rect x="0" y="0" width="250" height="115" rx="6" fill="#fafafa" stroke="#999"/>
+    <text x="10" y="20" font-weight="bold" font-size="13">LED polarity</text>
+    <text x="10" y="44" font-size="12">Long leg  = Anode (+) → resistor</text>
+    <text x="10" y="64" font-size="12">Short leg = Cathode (−) → GND</text>
+    <text x="10" y="84" font-size="12">(flat edge on the LED rim = −)</text>
+    <text x="10" y="104" font-size="12">R = (5 − 2) V / ~14 mA ≈ 220 Ω</text>
+  </g>
+
+  <!-- Wire colours -->
+  <g transform="translate(650,590)">
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#fafafa" stroke="#999"/>
+    <text x="10" y="20" font-weight="bold" font-size="13">Wire colours</text>
+    <line x1="10" y1="40" x2="50" y2="40" stroke="#d11f1f" stroke-width="4"/><text x="60" y="44" font-size="12">+5 V supply</text>
+    <line x1="10" y1="62" x2="50" y2="62" stroke="#222" stroke-width="4"/><text x="60" y="66" font-size="12">GND (0 V)</text>
+    <line x1="10" y1="84" x2="50" y2="84" stroke="#139a3c" stroke-width="4"/><text x="60" y="88" font-size="12">Analog signal to A0</text>
+    <text x="10" y="106" font-size="11" fill="#555">LED wires use the LED colour</text>
+  </g>
+</svg>
