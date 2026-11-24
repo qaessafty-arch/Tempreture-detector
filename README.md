@@ -2,6 +2,8 @@
 
 **Course:** Electrical Engineering – Computer and Control for Algorithms
 
+**Team:** Qays Ibrahim, Mosayab Aziz, Sarwar Haji, Lasf Waysi, Muhamed Ghazi, Hasan Ibrahim, Rzgar Farsat
+
 An Arduino UNO reads the temperature from an **LM35** sensor and lights **one** LED:
 
 | Temperature range      | LED ON     | Arduino pin |
