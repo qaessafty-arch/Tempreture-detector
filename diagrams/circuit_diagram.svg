@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="720" viewBox="0 0 1000 720" font-family="Arial, Helvetica, sans-serif" font-size="14">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="830" viewBox="0 0 1000 830" font-family="Arial, Helvetica, sans-serif" font-size="14">
   <defs>
     <marker id="ray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
@@ -17,8 +17,8 @@
       <polyline points="0,0 12,0 18,-9 26,9 34,-9 42,9 50,-9 58,9 64,0 80,0" fill="none" stroke="#222" stroke-width="2"/>
     </g>
   </defs>
-  <rect width="1000" height="720" fill="#fff"/>
-  <text x="500" y="34" text-anchor="middle" font-size="20" font-weight="bold">Circuit Diagram – Temperature Detector (Arduino UNO + LM35 + 3 LEDs)</text>
+  <rect width="1000" height="830" fill="#fff"/>
+  <text x="500" y="34" text-anchor="middle" font-size="20" font-weight="bold">Circuit Diagram – Temperature Detector (Arduino UNO + LM35 + 3 LEDs + 9 V battery)</text>
 
   <!-- ===== Arduino UNO ===== -->
   <rect x="60" y="80" width="230" height="470" rx="10" fill="#d8eef0" stroke="#00777f" stroke-width="3"/>
@@ -34,6 +34,8 @@
     <text x="282" y="435">D10</text>
     <text x="282" y="515">GND</text>
   </g>
+  <text x="70" y="475" font-weight="bold">VIN</text>
+  <circle cx="60" cy="470" r="4" fill="#222"/>
   <g fill="#222">
     <circle cx="290" cy="120" r="4"/><circle cx="290" cy="190" r="4"/>
     <circle cx="290" cy="290" r="4"/><circle cx="290" cy="360" r="4"/>
@@ -107,17 +109,40 @@
     <circle cx="900" cy="290" r="5"/><circle cx="900" cy="360" r="5"/><circle cx="900" cy="430" r="5"/>
   </g>
 
+  <!-- ===== Battery power: 9 V -> switch -> VIN, battery (-) -> GND ===== -->
+  <g fill="none" stroke-width="3" stroke-linejoin="round">
+    <polyline points="60,470 30,470 30,620 400,620" stroke="#d11f1f"/>
+    <line x1="450" y1="620" x2="520" y2="620" stroke="#d11f1f"/>
+    <polyline points="556,620 900,620 900,510" stroke="#222"/>
+  </g>
+  <!-- switch S1 -->
+  <circle cx="400" cy="620" r="5" fill="#222"/>
+  <circle cx="450" cy="620" r="5" fill="#222"/>
+  <line x1="400" y1="620" x2="446" y2="598" stroke="#222" stroke-width="3"/>
+  <text x="425" y="650" text-anchor="middle" font-size="12">S1 ON/OFF switch</text>
+  <!-- battery symbol (two cells) -->
+  <g stroke="#222">
+    <line x1="520" y1="598" x2="520" y2="642" stroke-width="3"/>
+    <line x1="532" y1="608" x2="532" y2="632" stroke-width="6"/>
+    <line x1="544" y1="598" x2="544" y2="642" stroke-width="3"/>
+    <line x1="556" y1="608" x2="556" y2="632" stroke-width="6"/>
+  </g>
+  <text x="510" y="600" font-size="16" font-weight="bold" fill="#d11f1f" text-anchor="end">+</text>
+  <text x="566" y="600" font-size="16" font-weight="bold">−</text>
+  <text x="538" y="666" text-anchor="middle" font-size="13" font-weight="bold">B1  9 V battery</text>
+  <text x="70" y="612" font-size="12" fill="#d11f1f">+9 V → VIN (on-board regulator makes 5 V)</text>
+  <circle cx="900" cy="620" r="5" fill="#222"/>
   <!-- ground symbol -->
   <g stroke="#222" stroke-width="3">
-    <line x1="900" y1="510" x2="900" y2="540"/>
-    <line x1="880" y1="540" x2="920" y2="540"/>
-    <line x1="887" y1="548" x2="913" y2="548"/>
-    <line x1="894" y1="556" x2="906" y2="556"/>
+    <line x1="900" y1="620" x2="900" y2="645"/>
+    <line x1="880" y1="645" x2="920" y2="645"/>
+    <line x1="887" y1="653" x2="913" y2="653"/>
+    <line x1="894" y1="661" x2="906" y2="661"/>
   </g>
 
   <!-- ===== Notes / insets ===== -->
   <!-- LM35 pinout -->
-  <g transform="translate(70,590)">
+  <g transform="translate(70,700)">
     <rect x="0" y="0" width="290" height="115" rx="6" fill="#fafafa" stroke="#999"/>
     <text x="10" y="20" font-weight="bold" font-size="13">LM35 pinout (flat face toward you)</text>
     <path d="M110,35 h70 v30 a35,15 0 0 1 -70,0 z" fill="#333"/>
@@ -133,7 +158,7 @@
   </g>
 
   <!-- LED polarity -->
-  <g transform="translate(380,590)">
+  <g transform="translate(380,700)">
     <rect x="0" y="0" width="250" height="115" rx="6" fill="#fafafa" stroke="#999"/>
     <text x="10" y="20" font-weight="bold" font-size="13">LED polarity</text>
     <text x="10" y="44" font-size="12">Long leg  = Anode (+) → resistor</text>
@@ -143,10 +168,10 @@
   </g>
 
   <!-- Wire colours -->
-  <g transform="translate(650,590)">
+  <g transform="translate(650,700)">
     <rect x="0" y="0" width="280" height="115" rx="6" fill="#fafafa" stroke="#999"/>
     <text x="10" y="20" font-weight="bold" font-size="13">Wire colours</text>
-    <line x1="10" y1="40" x2="50" y2="40" stroke="#d11f1f" stroke-width="4"/><text x="60" y="44" font-size="12">+5 V supply</text>
+    <line x1="10" y1="40" x2="50" y2="40" stroke="#d11f1f" stroke-width="4"/><text x="60" y="44" font-size="12">+5 V / +9 V supply</text>
     <line x1="10" y1="62" x2="50" y2="62" stroke="#222" stroke-width="4"/><text x="60" y="66" font-size="12">GND (0 V)</text>
     <line x1="10" y1="84" x2="50" y2="84" stroke="#139a3c" stroke-width="4"/><text x="60" y="88" font-size="12">Analog signal to A0</text>
     <text x="10" y="106" font-size="11" fill="#555">LED wires use the LED colour</text>

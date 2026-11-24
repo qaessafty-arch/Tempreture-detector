@@ -23,6 +23,7 @@ The system has three parts:
 - **Input:** the LM35 sensor turns temperature into a voltage (10 mV per °C).
 - **Processing:** the Arduino converts that voltage to °C and compares it with 20 °C and 40 °C.
 - **Output:** the Arduino turns on one of the three LEDs.
+- **Power:** a 9 V battery feeds the Arduino's VIN pin through an on/off switch.
 
 ### Flowchart (algorithm)
 ![Flowchart](diagrams/flowchart.png)
@@ -52,7 +53,7 @@ START
 
 | # | Component                          | Qty | Notes |
 |---|------------------------------------|-----|-------|
-| 1 | Arduino UNO (ATmega328P) + USB cable | 1 | Controller, also powers the circuit |
+| 1 | Arduino UNO (ATmega328P) + USB cable | 1 | Controller; USB is only needed to upload the code |
 | 2 | LM35 temperature sensor (TO-92)    | 1 | 10 mV/°C, range −55…150 °C |
 | 3 | Blue LED, 5 mm                     | 1 | T ≤ 20 °C |
 | 4 | Orange LED, 5 mm                   | 1 | 20 < T ≤ 40 °C |
@@ -60,6 +61,9 @@ START
 | 6 | Resistor 220 Ω, ¼ W                | 3 | One in series with each LED (limits current) |
 | 7 | Breadboard                         | 1 | |
 | 8 | Jumper wires (male–male)           | ~10 | |
+| 9 | 9 V battery (alkaline)             | 1 | Powers the circuit without a computer |
+| 10 | 9 V battery snap connector with wire leads | 1 | Connects the battery to the circuit |
+| 11 | Slide or toggle switch (SPST), small | 1 | Turns the detector on and off |
 
 ### Wiring table
 
@@ -72,6 +76,18 @@ START
 | Arduino **D9**      | 220 Ω → Orange LED anode (+, long leg) |
 | Arduino **D10**     | 220 Ω → Red LED anode (+, long leg)    |
 | All LED cathodes (−, short leg) | Arduino **GND** |
+| Battery **+** (red lead) | Switch S1 → Arduino **VIN** |
+| Battery **−** (black lead) | Arduino **GND** |
+
+### Battery power
+
+The detector runs from a **9 V battery** connected to the Arduino's **VIN** pin through an on/off switch. The Arduino's on-board regulator turns the 9 V into a steady 5 V. That 5 V powers the LM35 and the LEDs, so the code and the temperature formula stay exactly the same.
+
+- **Why VIN and not 5V:** the VIN input goes through the regulator, which accepts 7–12 V. Never connect the 9 V battery to the **5V** pin, because that would damage the board.
+- **Easier option:** a 9 V battery clip with a **2.1 mm barrel plug** plugs straight into the Arduino's round power jack and needs no wiring. It feeds the same regulator. Unplug it to turn the detector off.
+- **How long it lasts:** the circuit draws about 50–60 mA (the board plus one LED). A typical 9 V alkaline battery (about 500 mAh) therefore runs it for roughly **8 hours**, which is enough for the demo and testing.
+- **Weak battery:** below about 7 V the regulator can no longer hold 5 V, and the temperature readings start to drift. Replace the battery if the readings look wrong.
+- **Uploading code:** connect the USB cable to upload. It is safe to have the battery and USB connected at the same time, because the board chooses the higher supply automatically.
 
 **LM35 pins:** hold the sensor with the flat face toward you and the legs pointing down. From left to right the pins are 1 = +Vs, 2 = Vout, 3 = GND.
 
@@ -102,6 +118,7 @@ else                    → RED
 2. Choose **Tools → Board → Arduino UNO** and choose the correct **Port**.
 3. Click **Upload**.
 4. Open **Tools → Serial Monitor** at **9600 baud** to see the temperature.
+5. Unplug the USB cable, connect the 9 V battery and turn on the switch. The program starts by itself and keeps running from the battery. The Serial Monitor only works while USB is connected.
 
 Example Serial Monitor output:
 ```
