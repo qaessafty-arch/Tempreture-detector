@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker></defs>
+<rect width="1000" height="660" fill="#fff"/>
+<text x="500" y="34" text-anchor="middle" font-size="22" font-weight="bold">Schematic Diagram – Temperature Detector</text>
+<rect x="60" y="100" width="200" height="420" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="160" y="250" text-anchor="middle" font-size="16" fill="#111" font-weight="bold">U1</text>
+<text x="160" y="272" text-anchor="middle" font-size="13" fill="#111">Arduino UNO</text>
+<line x1="260" y1="150" x2="290" y2="150" stroke="#111" stroke-width="2"/>
+<text x="246" y="155" text-anchor="end" font-size="13" fill="#111">D10</text>
+<line x1="260" y1="190" x2="290" y2="190" stroke="#111" stroke-width="2"/>
+<text x="246" y="195" text-anchor="end" font-size="13" fill="#111">D9</text>
+<line x1="260" y1="230" x2="290" y2="230" stroke="#111" stroke-width="2"/>
+<text x="246" y="235" text-anchor="end" font-size="13" fill="#111">D8</text>
+<line x1="260" y1="370" x2="290" y2="370" stroke="#111" stroke-width="2"/>
+<text x="246" y="375" text-anchor="end" font-size="13" fill="#111">5V</text>
+<line x1="260" y1="410" x2="290" y2="410" stroke="#111" stroke-width="2"/>
+<text x="246" y="415" text-anchor="end" font-size="13" fill="#111">A0</text>
+<line x1="260" y1="450" x2="290" y2="450" stroke="#111" stroke-width="2"/>
+<text x="246" y="455" text-anchor="end" font-size="13" fill="#111">GND</text>
+<line x1="260" y1="490" x2="290" y2="490" stroke="#111" stroke-width="2"/>
+<text x="246" y="495" text-anchor="end" font-size="13" fill="#111">VIN</text>
+<line x1="290" y1="230" x2="300" y2="230" stroke="#111" stroke-width="2"/>
+<rect x="300" y="223" width="40" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="320" y="218" text-anchor="middle" font-size="11" fill="#111">R 220 Ω</text>
+<line x1="340" y1="230" x2="460" y2="230" stroke="#111" stroke-width="2"/>
+<line x1="460" y1="230" x2="460" y2="245" stroke="#111" stroke-width="2"/>
+<polygon points="451,245 469,245 460,261" fill="none" stroke="#111" stroke-width="2"/>
+<line x1="451" y1="261" x2="469" y2="261" stroke="#111" stroke-width="2"/>
+<line x1="460" y1="261" x2="460" y2="550" stroke="#111" stroke-width="2"/>
+<line x1="464" y1="242" x2="474" y2="233" stroke="#111" stroke-width="1.5"/>
+<line x1="470" y1="250" x2="480" y2="241" stroke="#111" stroke-width="1.5"/>
+<text x="434" y="252" text-anchor="end" text-anchor="start" font-size="12" fill="#1f5fd1" font-weight="bold">D1 Blue LED</text>
+<line x1="290" y1="190" x2="300" y2="190" stroke="#111" stroke-width="2"/>
+<rect x="300" y="183" width="40" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="320" y="178" text-anchor="middle" font-size="11" fill="#111">R 220 Ω</text>
+<line x1="340" y1="190" x2="540" y2="190" stroke="#111" stroke-width="2"/>
+<line x1="540" y1="190" x2="540" y2="205" stroke="#111" stroke-width="2"/>
+<polygon points="531,205 549,205 540,221" fill="none" stroke="#111" stroke-width="2"/>
+<line x1="531" y1="221" x2="549" y2="221" stroke="#111" stroke-width="2"/>
+<line x1="540" y1="221" x2="540" y2="550" stroke="#111" stroke-width="2"/>
+<line x1="544" y1="202" x2="554" y2="193" stroke="#111" stroke-width="1.5"/>
+<line x1="550" y1="210" x2="560" y2="201" stroke="#111" stroke-width="1.5"/>
+<text x="527" y="212" text-anchor="end" text-anchor="start" font-size="12" fill="#e07000" font-weight="bold">D2 Orange LED</text>
+<line x1="290" y1="150" x2="300" y2="150" stroke="#111" stroke-width="2"/>
+<rect x="300" y="143" width="40" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="320" y="138" text-anchor="middle" font-size="11" fill="#111">R 220 Ω</text>
+<line x1="340" y1="150" x2="620" y2="150" stroke="#111" stroke-width="2"/>
+<line x1="620" y1="150" x2="620" y2="165" stroke="#111" stroke-width="2"/>
+<polygon points="611,165 629,165 620,181" fill="none" stroke="#111" stroke-width="2"/>
+<line x1="611" y1="181" x2="629" y2="181" stroke="#111" stroke-width="2"/>
+<line x1="620" y1="181" x2="620" y2="550" stroke="#111" stroke-width="2"/>
+<line x1="624" y1="162" x2="634" y2="153" stroke="#111" stroke-width="1.5"/>
+<line x1="630" y1="170" x2="640" y2="161" stroke="#111" stroke-width="1.5"/>
+<text x="646" y="172" text-anchor="start" font-size="12" fill="#d11f1f" font-weight="bold">D3 Red LED</text>
+<line x1="290" y1="490" x2="300" y2="490" stroke="#111" stroke-width="2"/>
+<line x1="300" y1="490" x2="315" y2="490" stroke="#111" stroke-width="2"/>
+<circle cx="315" cy="490" r="2.5" fill="#111"/>
+<line x1="315" y1="490" x2="336" y2="474" stroke="#111" stroke-width="2"/>
+<circle cx="340" cy="490" r="2.5" fill="#111"/>
+<line x1="340" y1="490" x2="392" y2="490" stroke="#111" stroke-width="2"/>
+<text x="322" y="466" text-anchor="middle" font-size="12" fill="#111" font-weight="bold">S1</text>
+<line x1="392" y1="476" x2="392" y2="504" stroke="#111" stroke-width="3"/>
+<line x1="402" y1="484" x2="402" y2="496" stroke="#111" stroke-width="2"/>
+<line x1="402" y1="490" x2="440" y2="490" stroke="#111" stroke-width="2"/>
+<line x1="440" y1="490" x2="440" y2="550" stroke="#111" stroke-width="2"/>
+<text x="425" y="462" text-anchor="middle" font-size="12" fill="#111" font-weight="bold">B1 9 V</text>
+<text x="380" y="486" text-anchor="end" font-size="12" fill="#111" font-weight="bold">+</text>
+<text x="408" y="512" text-anchor="middle" font-size="12" fill="#111" font-weight="bold">−</text>
+<rect x="810" y="375" width="90" height="70" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="855" y="366" text-anchor="middle" font-size="12" fill="#111" font-weight="bold">U2 LM35</text>
+<text x="818" y="413" text-anchor="start" font-size="11" fill="#111">Vout</text>
+<text x="818" y="433" text-anchor="start" font-size="11" fill="#111">GND</text>
+<text x="818" y="392" text-anchor="start" font-size="11" fill="#111">+Vs</text>
+<line x1="780" y1="390" x2="810" y2="390" stroke="#111" stroke-width="2"/>
+<line x1="780" y1="410" x2="810" y2="410" stroke="#111" stroke-width="2"/>
+<line x1="810" y1="430" x2="790" y2="430" stroke="#111" stroke-width="2"/>
+<line x1="790" y1="430" x2="790" y2="550" stroke="#111" stroke-width="2"/>
+<text x="776" y="394" text-anchor="end" font-size="12" fill="#111" font-weight="bold">+5V</text>
+<text x="776" y="414" text-anchor="end" font-size="12" fill="#111" font-weight="bold">A0</text>
+<text x="292" y="374" text-anchor="start" font-size="12" fill="#111" font-weight="bold">+5V</text>
+<text x="292" y="414" text-anchor="start" font-size="12" fill="#111" font-weight="bold">A0</text>
+<line x1="260" y1="450" x2="280" y2="450" stroke="#111" stroke-width="2"/>
+<line x1="280" y1="450" x2="280" y2="550" stroke="#111" stroke-width="2"/>
+<line x1="280" y1="550" x2="790" y2="550" stroke="#111" stroke-width="2"/>
+<line x1="520" y1="550" x2="520" y2="558" stroke="#111" stroke-width="2"/>
+<line x1="508" y1="558" x2="532" y2="558" stroke="#111" stroke-width="2"/>
+<line x1="512" y1="563" x2="528" y2="563" stroke="#111" stroke-width="2"/>
+<line x1="516" y1="568" x2="524" y2="568" stroke="#111" stroke-width="2"/>
+
+<rect x="60" y="590" width="900" height="60" fill="#fafafa" stroke="#bbb"/>
+<text x="72" y="610" text-anchor="start" font-size="12" fill="#111">Parts:  U1 Arduino UNO · U2 LM35 temperature sensor · R1–R3 220 Ω, ¼ W · D1 Blue, D2 Orange, D3 Red LED · B1 9 V battery · S1 SPST switch</text>
+<text x="72" y="632" text-anchor="start" font-size="11" fill="#555">Net labels +5V, A0 and GND connect the pins with the same name. Pin labels are shown on the symbols.</text>
+</svg>
